@@ -354,8 +354,12 @@ img {
   scrollbar-width: none;
   scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-x pinch-zoom;
+  touch-action: auto;
   overscroll-behavior-x: contain;
+}
+
+.feature-gallery {
+  position: relative;
 }
 
 .phone-shot {
@@ -642,7 +646,28 @@ img {
   }
 
   .phone-gallery {
-    gap: 12px;
+    gap: 14px;
+    padding: 2px calc(50vw - 95px) 10px;
+    scroll-padding-inline: calc(50vw - 95px);
+    scroll-snap-type: x proximity;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      rgba(0, 0, 0, 0.28) 12%,
+      rgba(0, 0, 0, 1) 24%,
+      rgba(0, 0, 0, 1) 76%,
+      rgba(0, 0, 0, 0.28) 88%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      rgba(0, 0, 0, 0.28) 12%,
+      rgba(0, 0, 0, 1) 24%,
+      rgba(0, 0, 0, 1) 76%,
+      rgba(0, 0, 0, 0.28) 88%,
+      transparent 100%
+    );
   }
 
   .phone-shot {
