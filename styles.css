@@ -372,7 +372,7 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 18px;
   box-shadow: 0 14px 40px rgba(17, 18, 23, 0.06);
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 .phone-gallery::-webkit-scrollbar {
@@ -647,8 +647,8 @@ img {
 
   .phone-gallery {
     gap: 14px;
-    padding: 2px calc(50vw - 95px) 10px;
-    scroll-padding-inline: calc(50vw - 95px);
+    padding: 2px 50vw 10px;
+    scroll-padding-inline: 50vw;
     scroll-snap-type: x proximity;
     mask-image: linear-gradient(
       to right,
