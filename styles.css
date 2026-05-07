@@ -328,6 +328,22 @@ img {
   color: var(--muted);
 }
 
+.gallery-scroll-hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 760px;
+  padding: 0 2px 12px;
+  color: rgba(23, 24, 28, 0.45);
+  font-size: 0.92rem;
+}
+
+.gallery-scroll-arrows {
+  letter-spacing: 0.16em;
+  color: rgba(23, 24, 28, 0.38);
+}
+
 .phone-gallery {
   display: flex;
   gap: 16px;
@@ -343,10 +359,10 @@ img {
 }
 
 .phone-shot {
-  flex: 0 0 clamp(200px, 72vw, 240px);
-  min-width: 200px;
+  flex: 0 0 clamp(150px, 18vw, 180px);
+  min-width: 150px;
   margin: 0;
-  padding: 16px;
+  padding: 14px;
   background: var(--surface);
   backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.8);
@@ -543,6 +559,11 @@ img {
     gap: 14px;
   }
 
+  .phone-shot {
+    flex-basis: clamp(170px, 26vw, 200px);
+    min-width: 170px;
+  }
+
   .support-links {
     justify-content: flex-start;
   }
@@ -632,6 +653,11 @@ img {
 
   .phone-shot img {
     height: auto;
+  }
+
+  .gallery-scroll-hint {
+    padding-bottom: 10px;
+    font-size: 0.88rem;
   }
 
   .support-links {
