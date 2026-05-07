@@ -1,0 +1,6 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#FFFFFF"/>
+  <path d="M154 176 Q256 152 358 176 Q328 236 284 286 Q256 310 228 286 Q184 236 154 176 Z" fill="#1D1E22"/>
+  <path d="M256 214C267 215 276 223 280 233C284 243 281 253 274 260C267 267 256 270 246 268C236 266 228 259 225 249C222 239 225 228 233 221C239 216 247 213 256 214Z" fill="#FFFFFF"/>
+  <text x="256" y="404" text-anchor="middle" fill="#17181C" font-family="Avenir Next, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="72" font-weight="630" letter-spacing="6">SIFT</text>
+</svg>

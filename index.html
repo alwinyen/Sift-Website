@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sift</title>
+    <meta
+      name="description"
+      content="Sift turns tasks into settling grains so you can see what feels heaviest and interact with it."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html" aria-label="Sift home">
+          <img src="./logo.svg" alt="Sift logo" />
+          <span>SIFT</span>
+        </a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="./features.html">Features</a>
+          <a href="#contact">Contact</a>
+          <a href="https://forms.gle/6xeoEbFbAkrQSUSq5" target="_blank" rel="noreferrer">Feedback &amp; Bug Report</a>
+          <a href="./privacy.html">Privacy Policy</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-stage">
+            <div class="canvas-wrap">
+              <canvas id="sift-canvas" aria-label="Interactive Sift grain container"></canvas>
+            </div>
+          </div>
+
+          <div class="hero-copy">
+            <p class="eyebrow">OFFICIAL SITE</p>
+            <h1 id="hero-title">See what is settling on your mind.</h1>
+            <p class="hero-text">
+              Sift turns your tasks into living grains so the things weighing on you feel visible, movable, and easier to sort through.
+            </p>
+          </div>
+        </section>
+
+        <section class="support-band" id="contact">
+          <p class="section-label">SUPPORT</p>
+          <div class="support-links">
+            <a href="mailto:siftapp.contact@gmail.com">siftapp.contact@gmail.com</a>
+            <a href="https://forms.gle/6xeoEbFbAkrQSUSq5" target="_blank" rel="noreferrer">Feedback &amp; Bug Report</a>
+            <a href="./privacy.html">Privacy Policy</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>Sift</p>
+        <div class="footer-links">
+          <a href="./features.html">Features</a>
+          <a href="mailto:siftapp.contact@gmail.com">siftapp.contact@gmail.com</a>
+          <a href="https://forms.gle/6xeoEbFbAkrQSUSq5" target="_blank" rel="noreferrer">Feedback &amp; Bug Report</a>
+          <a href="./privacy.html">Privacy Policy</a>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
