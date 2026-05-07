@@ -18,9 +18,9 @@
           <span>SIFT</span>
         </a>
         <nav class="topnav" aria-label="Primary">
-          <a href="./features.html">Features</a>
+          <a href="#features">Features</a>
           <a href="#contact">Contact</a>
-          <a href="https://forms.gle/6xeoEbFbAkrQSUSq5" target="_blank" rel="noreferrer">Feedback &amp; Bug Report</a>
+          <a href="https://forms.gle/6xeoEbFbAkrQSUSq5" target="_blank" rel="noreferrer">Feedback</a>
           <a href="./privacy.html">Privacy Policy</a>
         </nav>
       </header>
@@ -30,6 +30,10 @@
           <div class="hero-stage">
             <div class="canvas-wrap">
               <canvas id="sift-canvas" aria-label="Interactive Sift grain container"></canvas>
+              <div class="canvas-controls">
+                <button type="button" class="grain-button" id="add-grain-button">Add grain</button>
+                <p class="grain-count" id="grain-count" aria-live="polite">2 / 30 grains</p>
+              </div>
             </div>
           </div>
 
@@ -42,11 +46,43 @@
           </div>
         </section>
 
+        <section class="home-features" id="features">
+          <div class="home-features-intro">
+            <p class="section-label">FEATURES</p>
+            <h2>A calmer way to sort what matters.</h2>
+            <p>
+              Sift turns your task list into something you can feel and work with, not just scan and ignore.
+            </p>
+          </div>
+          <div class="home-feature-grid">
+            <article class="home-feature-item">
+              <p class="section-label">GRAINS</p>
+              <h3>Visual priority</h3>
+              <p>Tasks become weighted grains so the heaviest things naturally stand out.</p>
+            </article>
+            <article class="home-feature-item">
+              <p class="section-label">VOICE</p>
+              <h3>Fast capture</h3>
+              <p>Speak a task out loud and turn it into something actionable without breaking your flow.</p>
+            </article>
+            <article class="home-feature-item">
+              <p class="section-label">LOCATION</p>
+              <h3>Place-based reminders</h3>
+              <p>Attach tasks to places so they resurface when you are where they matter.</p>
+            </article>
+            <article class="home-feature-item">
+              <p class="section-label">VIEWS</p>
+              <h3>Map, list, and calendar</h3>
+              <p>Move between tactile, spatial, and structured views depending on how you want to plan.</p>
+            </article>
+          </div>
+        </section>
+
         <section class="support-band" id="contact">
           <p class="section-label">SUPPORT</p>
           <div class="support-links">
             <a href="mailto:siftapp.contact@gmail.com">siftapp.contact@gmail.com</a>
-            <a href="https://forms.gle/6xeoEbFbAkrQSUSq5" target="_blank" rel="noreferrer">Feedback &amp; Bug Report</a>
+            <a href="https://forms.gle/6xeoEbFbAkrQSUSq5" target="_blank" rel="noreferrer">Feedback</a>
             <a href="./privacy.html">Privacy Policy</a>
           </div>
         </section>
@@ -55,9 +91,9 @@
       <footer class="site-footer">
         <p>Sift</p>
         <div class="footer-links">
-          <a href="./features.html">Features</a>
+          <a href="#features">Features</a>
           <a href="mailto:siftapp.contact@gmail.com">siftapp.contact@gmail.com</a>
-          <a href="https://forms.gle/6xeoEbFbAkrQSUSq5" target="_blank" rel="noreferrer">Feedback &amp; Bug Report</a>
+          <a href="https://forms.gle/6xeoEbFbAkrQSUSq5" target="_blank" rel="noreferrer">Feedback</a>
           <a href="./privacy.html">Privacy Policy</a>
         </div>
       </footer>

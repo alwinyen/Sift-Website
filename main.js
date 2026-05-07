@@ -1,6 +1,8 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js";
 
 const canvas = document.querySelector("#sift-canvas");
+const addGrainButton = document.querySelector("#add-grain-button");
+const grainCountLabel = document.querySelector("#grain-count");
 
 if (!canvas || !window.WebGLRenderingContext) {
   if (canvas?.parentElement) {
@@ -10,6 +12,7 @@ if (!canvas || !window.WebGLRenderingContext) {
     canvas.parentElement.appendChild(fallback);
   }
 } else {
+  const maxGrains = 30;
   const renderer = new THREE.WebGLRenderer({
     canvas,
     antialias: true,
@@ -108,11 +111,24 @@ if (!canvas || !window.WebGLRenderingContext) {
 
   const grainGeometry = new THREE.SphereGeometry(1, 36, 36);
   const grains = [];
-  const grainCount = 16;
+  let nextGrainIndex = 0;
 
-  for (let index = 0; index < grainCount; index += 1) {
-    const [base, shadow] = palette[index % palette.length];
-    const radius = THREE.MathUtils.lerp(0.38, 0.9, (index % 6) / 5);
+  function updateGrainUi() {
+    if (grainCountLabel) {
+      const noun = grains.length === 1 ? "grain" : "grains";
+      grainCountLabel.textContent = `${grains.length} / ${maxGrains} ${noun}`;
+    }
+    if (addGrainButton) {
+      addGrainButton.disabled = grains.length >= maxGrains;
+    }
+  }
+
+  function createGrain(radiusOverride) {
+    const grainIndex = nextGrainIndex;
+    nextGrainIndex += 1;
+    const [base, shadow] = palette[grainIndex % palette.length];
+    const radius =
+      radiusOverride ?? THREE.MathUtils.lerp(0.42, 0.92, (grainIndex % 6) / 5);
     const material = new THREE.MeshPhysicalMaterial({
       color: new THREE.Color(base),
       emissive: new THREE.Color(base).multiplyScalar(0.06),
@@ -124,8 +140,8 @@ if (!canvas || !window.WebGLRenderingContext) {
     const mesh = new THREE.Mesh(grainGeometry, material);
     mesh.scale.setScalar(radius);
     mesh.position.set(
-      THREE.MathUtils.randFloat(-3.35, 3.35),
-      THREE.MathUtils.randFloat(2.6, 5.7),
+      THREE.MathUtils.randFloat(-2.2, 2.2),
+      THREE.MathUtils.randFloat(2.8, 5.9),
       THREE.MathUtils.randFloat(-0.55, 0.55)
     );
     scene.add(mesh);
@@ -142,17 +158,35 @@ if (!canvas || !window.WebGLRenderingContext) {
     rim.position.copy(mesh.position);
     scene.add(rim);
 
-    grains.push({
+    const grain = {
       radius,
       mesh,
       rim,
       velocity: new THREE.Vector2(
-        THREE.MathUtils.randFloatSpread(0.4),
-        THREE.MathUtils.randFloatSpread(0.25)
+        THREE.MathUtils.randFloatSpread(0.3),
+        THREE.MathUtils.randFloat(-0.12, 0.12)
       ),
       spin: THREE.MathUtils.randFloat(0.4, 1.1),
-    });
+    };
+    grains.push(grain);
+    updateGrainUi();
+    return grain;
   }
+
+  function seedInitialGrains() {
+    createGrain(0.92);
+    createGrain(0.74);
+  }
+
+  function addGrain() {
+    if (grains.length >= maxGrains) {
+      updateGrainUi();
+      return;
+    }
+    createGrain();
+  }
+
+  seedInitialGrains();
 
   const raycaster = new THREE.Raycaster();
   const dragPlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
@@ -322,10 +356,12 @@ if (!canvas || !window.WebGLRenderingContext) {
   window.addEventListener("pointermove", onPointerMove);
   window.addEventListener("pointerup", endPointer);
   window.addEventListener("pointercancel", endPointer);
+  addGrainButton?.addEventListener("click", addGrain);
   canvas.addEventListener("pointerleave", () => {
     state.pointer.set(0, 0);
   });
 
+  updateGrainUi();
   resize();
   animate();
 }
