@@ -156,6 +156,19 @@ img {
   color: var(--muted);
 }
 
+.app-store-badge {
+  display: inline-flex;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.app-store-badge img {
+  width: 246px;
+  max-width: min(100%, 246px);
+  height: auto;
+  object-fit: contain;
+}
+
 .hero-stage {
   display: flex;
   align-items: stretch;
@@ -637,6 +650,10 @@ img {
 
   .hero-text {
     font-size: 0.98rem;
+  }
+
+  .app-store-badge img {
+    width: min(246px, 72vw);
   }
 
   .home-features-intro,
